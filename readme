@@ -1,0 +1,6 @@
+export NODE_ENV=development  //To Utilize the development.json in the ./config directory
+export NODE_ENV=production   //To Utilize the production.json in the ./config directory
+
+
+The custom-environment-variables.json maps envrionment variables to variables defined in our other config json files.
+
