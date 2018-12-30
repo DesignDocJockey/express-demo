@@ -1,4 +1,4 @@
 {
-    "name": "Default Production Value",
-    "connectionString": "Default Production Connection String"
+    "name": "Production Value",
+    "dbConnectionString": "Production Connection String"
 }

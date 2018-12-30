@@ -1,4 +1,4 @@
 {
-    "name": "Default Development Value",
-    "connectionString": "Default Development Connection String"
+    "name": "Development Value",
+    "dbConnectionString": "mongodb://localhost/players"
 }

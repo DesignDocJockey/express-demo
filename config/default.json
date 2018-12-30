@@ -1,4 +1,4 @@
 {
     "name": "Default Value",
-    "connectionString": "Default Connection String"
+    "dbConnectionString": "mongodb://localhost/players"
 }
