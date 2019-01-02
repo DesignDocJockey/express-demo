@@ -26,18 +26,45 @@ async function createQuarterback(jerseyNumber, firstName, lastName, tags) {
         tags: tags
     });
     const result = await quarterback.save();
-    console.log(result);
+    return result;
 }
 
-async function getQuarterbacks() {
-    //retreives all
-    //const qbs = await Quarterback.find();
-    
-    //filter by criteria
-    const qbs = await Quarterback.find( { firstName: "Tom"} )
-                                  .limit(1)
-                                  .select( { firstName: 1, tags: 1} );
+async function getAllQuarterbacks() {
+    const qbs = await Quarterback.find();
     return qbs;
+}
+
+async function getQuarterback(id) {
+    //filter by criteria
+    const qb = await Quarterback.findById(id);
+                                //   .limit(1)
+                                //   .select( { firstName: 1, tags: 1} );
+    return qb;
+}
+
+async function updateQuarterback(id, number, first, last, tags) {
+    // const qb = await Quarterback.findById(id);
+    // if (!qb) return;
+    // qb.set({
+    //     number: number,
+    //     firstName: first,
+    //     lastName: last,
+    //     tags: tags
+    // });
+    // await qb.save();
+
+    const qb = await Quarterback.findByIdAndUpdate(id, {
+        $set: {
+            number: number,
+            firstName: first,
+            lastName: last,
+            tags: tags
+        }
+    });
+}
+
+async function removeQuarterback(id) {
+    const qb = await Quarterback.findOneAndRemove(id);
 }
 
 getQuarterbacks().then(
@@ -46,7 +73,10 @@ getQuarterbacks().then(
     }
 );
 
-//createQuarterback(12, 'Aaron', 'Rodgers',  ['Quarterback', "Green Bay", "Packers"] );
+createQuarterback(8, 'Kirk', 'Cousins',  ['Quarterback', "Vikings"] )
+    .then((newlyCreatedQb) => {
+        updateQuarterback(newlyCreatedQb.id, 15, "Patrick", "Mahomes",  ["Chiefs", "Quarterback", "Kermit"])
+    });
 
 /**
         number: 12,
