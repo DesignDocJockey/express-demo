@@ -11,6 +11,7 @@ const mongoose = require('mongoose');
 //     tags: [String]
 // }, {_id: false});
 
+const qbModelName = "Quarterback";
 const quarterbackSchema = new mongoose.Schema({
     number: Number,
     firstName: String,
@@ -22,4 +23,4 @@ const quarterbackSchema = new mongoose.Schema({
     teams: [String]
 });
 
-module.exports = quarterbackSchema;
+module.exports = mongoose.model(qbModelName, quarterbackSchema) ;

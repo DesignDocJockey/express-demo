@@ -1,0 +1,19 @@
+#base image
+FROM node:10.15.0-alpine
+
+#add bash
+RUN apk update
+RUN apk upgrade
+RUN apk add bash
+
+#specify the working directory
+WORKDIR /usr/app/
+COPY ./ /usr/app/
+
+#run npm install 
+RUN npm install
+
+#run npm build 
+RUN npm run build
+
+CMD ["npm", "start"]
